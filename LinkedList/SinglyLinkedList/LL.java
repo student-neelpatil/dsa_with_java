@@ -9,6 +9,12 @@ package LinkedList.SinglyLinkedList;
             this.value=value;
         }
 
+        
+        Node(int value,Node next){
+          this.value=value;
+          this.next=next;
+        }
+
     }
 
     private Node head;
@@ -31,7 +37,7 @@ package LinkedList.SinglyLinkedList;
             head=node;
         }
 
-        if(tail==null){
+        if(head==tail && tail==null){
             insertAtbeginning(element);
         }
 
@@ -48,6 +54,7 @@ package LinkedList.SinglyLinkedList;
 
     }
 
+    //TC-O(1)
     public void insertAtEndUsingTail(int ele){
     
         Node node=new Node(ele);
@@ -59,6 +66,7 @@ package LinkedList.SinglyLinkedList;
         tail.next=node;
         node.next=null;
         tail=node;
+        size++;
 
     }
 
@@ -74,6 +82,39 @@ package LinkedList.SinglyLinkedList;
         node.next=head;
         head=node;
         size +=1;
+    }
+
+    //insert at any index start index from 0;
+    public void insert(int ele,int index){
+        Node node=new Node(ele);
+        if(index==0){
+            insertAtbeginning(ele);
+            return;
+        }
+
+
+        //why size is taken not size-1 because we start size from 0
+        if (index == size) {
+            insertAtEndUsingTail(ele);
+            return ;
+        }
+
+        Node temp=head;
+        int i=0;
+        while(i<index){
+            temp=temp.next;
+            i++;
+        }
+        node.next=temp.next;
+        temp.next=node;
+
+        //we can use 2nd constructor 
+
+        // Node node1=new Node(ele,temp.next);
+        // temp.next=node1;
+
+        size++;
+
     }
 
     public int findAtposition(int pos){
@@ -132,6 +173,8 @@ package LinkedList.SinglyLinkedList;
         System.out.println("Null");
         
     }
+
+
  }
 
 

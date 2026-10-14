@@ -24,11 +24,24 @@ public class Main {
         ll.insertAtbeginning(5);
         ll.insertAtbeginning(3);
 
+
         ll.printlist();
+
+
+        System.out.println("-----------------------------");
+
+        ll.insertAtEndUsingTail(100);
+        ll.insert(120, 3);
+
+         ll.printlist();
+
+        System.out.println("-----------------------------");
 
         System.out.println(ll.findAtposition(2));
         System.out.println(ll.findByElement(40));
 
+        System.out.println("-----------------------------");
+        System.out.println("size is :"+ll.size);
 
     }
 }
