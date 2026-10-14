@@ -156,6 +156,27 @@ package LinkedList.SinglyLinkedList;
       return count;
     }
 
+    //delete operations
+
+public int deleteFirst(){
+
+    if(head==null){
+        return -1;
+    }    
+
+    //only one element condition
+    if(head==tail){
+        head=null;
+        tail=null; //both should move
+    }
+     int value=head.value;
+     head=head.next;
+
+     size--;
+     return value;
+  
+    }
+
     public void printlist(){
       
         if(head==null){

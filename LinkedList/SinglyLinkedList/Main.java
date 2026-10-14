@@ -43,5 +43,12 @@ public class Main {
         System.out.println("-----------------------------");
         System.out.println("size is :"+ll.size);
 
+        System.out.println("-----------------------------");
+        System.out.println(ll.deleteFirst());
+        ll.printlist();
+        System.out.println("size is :"+ll.size);
+
+
+
     }
 }
