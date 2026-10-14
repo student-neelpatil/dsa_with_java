@@ -49,6 +49,12 @@ public class Main {
         System.out.println("size is :"+ll.size);
 
         System.out.println(ll.deleteLast());
+
+        System.out.println("size is :"+ll.size);
+        ll.printlist();
+
+
+        System.out.println(ll.delete(2));
         ll.printlist();
 
 

@@ -216,8 +216,37 @@ public int deleteFirst(){
 
      size--;
      return data;
+
   
     }
+
+
+    public int delete(int index){
+        if(index==0){
+            return deleteFirst();
+        }
+
+        if(index==size-1){
+            return  deleteLast();
+        }
+
+        Node temp=head;        
+        int i=1;
+        while(i<index && temp.next!=null){
+            temp=temp.next;
+            i++;
+        }
+        int data=temp.next.value;
+        temp.next=temp.next.next;
+
+        size--;
+        return data;
+    }
+
+
+    //delete by element
+
+    
 //------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------
