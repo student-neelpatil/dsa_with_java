@@ -27,7 +27,7 @@ package LinkedList.SinglyLinkedList;
         this.size=0;
     }
 
-
+//-----------------------------------------------------------------------------------------------------------------
     //T.C=O(n)
     public void insertAtend(int element){
            
@@ -53,7 +53,7 @@ package LinkedList.SinglyLinkedList;
         size +=1;
 
     }
-
+//----------------------------------------------------------------------------------------------------------------
     //TC-O(1)
     public void insertAtEndUsingTail(int ele){
     
@@ -70,6 +70,8 @@ package LinkedList.SinglyLinkedList;
 
     }
 
+    //-----------------------------------------------------------------------------------------------------------------
+
     //TC=O(1)
     public void insertAtbeginning(int element){
         Node node=new Node(element);
@@ -84,6 +86,8 @@ package LinkedList.SinglyLinkedList;
         size +=1;
     }
 
+    //---------------------------------------------------------------------------------------------------------------
+
     //insert at any index start index from 0;
     public void insert(int ele,int index){
         Node node=new Node(ele);
@@ -94,7 +98,7 @@ package LinkedList.SinglyLinkedList;
 
 
         //why size is taken not size-1 because we start size from 0
-        if (index == size) {
+        if (index == size) { 
             insertAtEndUsingTail(ele);
             return ;
         }
@@ -117,6 +121,9 @@ package LinkedList.SinglyLinkedList;
 
     }
 
+    //---------------------------------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------------------------------
+
     public int findAtposition(int pos){
  
      if(head==null){
@@ -138,6 +145,8 @@ package LinkedList.SinglyLinkedList;
 
     }
 
+    //--------------------------------------------------------------------------------------------------------------
+
     public int findByElement(int element){
       int count=1;
 
@@ -156,6 +165,9 @@ package LinkedList.SinglyLinkedList;
       return count;
     }
 
+//---------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------    
+
     //delete operations
 
 public int deleteFirst(){
@@ -169,13 +181,47 @@ public int deleteFirst(){
         head=null;
         tail=null; //both should move
     }
-     int value=head.value;
+     int data=head.value;
      head=head.next;
 
      size--;
-     return value;
+     return data;
   
     }
+
+ //------------------------------------------------------------------------------------------------------------------   
+
+    public int deleteLast(){
+
+    if(head==null){
+        return -1;
+    }    
+
+    //only one element condition
+    if(head==tail || head==null){
+        head=null;
+        tail=null; //both should move
+    }
+
+    Node temp=head;//move it to second last element
+    
+    while(temp.next.next!=null){
+        temp=temp.next;
+    }
+
+      int data=tail.value;
+      tail=temp;
+      temp.next=null;
+    
+
+     size--;
+     return data;
+  
+    }
+//------------------------------------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------------------------------------------------
+
 
     public void printlist(){
       
