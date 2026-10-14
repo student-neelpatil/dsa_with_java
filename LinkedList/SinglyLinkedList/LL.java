@@ -13,19 +13,26 @@ package LinkedList.SinglyLinkedList;
 
     private Node head;
     private Node tail;
+    int size;
 
     public LL(){
        this.head=null;
         this.tail=null;
+        this.size=0;
     }
 
 
+    //T.C=O(n)
     public void insertAtend(int element){
            
         Node node=new Node(element);
         
         if(head==null){
             head=node;
+        }
+
+        if(tail==null){
+            insertAtbeginning(element);
         }
 
         Node curr=head;
@@ -36,9 +43,26 @@ package LinkedList.SinglyLinkedList;
 
         curr.next=node;
         node.next=null;
+        tail=node;
+        size +=1;
 
     }
 
+    public void insertAtEndUsingTail(int ele){
+    
+        Node node=new Node(ele);
+
+        if(tail==null){
+            insertAtbeginning(ele);
+        }
+
+        tail.next=node;
+        node.next=null;
+        tail=node;
+
+    }
+
+    //TC=O(1)
     public void insertAtbeginning(int element){
         Node node=new Node(element);
         
@@ -49,6 +73,7 @@ package LinkedList.SinglyLinkedList;
 
         node.next=head;
         head=node;
+        size +=1;
     }
 
     public int findAtposition(int pos){
@@ -66,6 +91,7 @@ package LinkedList.SinglyLinkedList;
         curr=curr.next;
         count++;
      }
+
 
      return curr.value;
 
@@ -103,7 +129,7 @@ package LinkedList.SinglyLinkedList;
             current=current.next;
         }
 
-        System.out.println("");
+        System.out.println("Null");
         
     }
  }
