@@ -57,6 +57,9 @@ public class Main {
         System.out.println(ll.delete(2));
         ll.printlist();
 
+        ll.deleteByElement(60);
+        ll.printlist();
+
 
 
 

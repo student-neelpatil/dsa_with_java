@@ -246,7 +246,59 @@ public int deleteFirst(){
 
     //delete by element
 
-    
+    public void deleteByElement(int element){
+
+        if(head==null){
+            return;
+        }
+
+        if (head.value == element) {
+             head = head.next;
+             size--;
+              if (head == null) {
+                tail = null;
+              }
+
+        return;
+    }
+        Node temp=head;
+
+        // while(temp.next.value!=element){
+        //    temp=temp.next;
+        // } 
+
+        // if(temp.next.next==null){
+        //     deleteLast();
+        // }
+
+        // temp.next=temp.next.next;
+        // size--;
+
+        while (temp.next != null &&
+           temp.next.value != element) {
+        temp = temp.next;
+    }
+
+    // Element not found
+    if (temp.next == null) {
+        return;
+    }
+
+    // If target is the last node
+    if (temp.next == tail) {
+        tail = temp;
+    }
+
+    // Remove the target node
+    temp.next = temp.next.next;
+    size--;
+
+
+    }
+
+
+
+
 //------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------
