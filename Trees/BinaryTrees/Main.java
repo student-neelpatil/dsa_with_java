@@ -11,6 +11,9 @@ public class Main {
 
         bt.BuildTree(scanner);
         bt.display();
+        bt.insert(scanner);
+        bt.display();
+
 
        
 

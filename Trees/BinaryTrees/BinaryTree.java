@@ -56,53 +56,64 @@ public class BinaryTree {
 
 //insert new node in binary tree using recursion based approach
 
-public void insert(Scanner sc){
-  System.out.println("enter the value of node  want to insert  in binary tree");
-  int value=sc.nextInt();
-  root=new Node(value);
-  insert(sc,root);
+public void insert(Scanner sc) {
+    System.out.println("do u want to insert node");
+    boolean isInsert = sc.nextBoolean();
 
+    if (isInsert) {
+        System.out.println("enter the value of node you want to insert in binary tree");
+        int value = sc.nextInt();
+
+        if (root == null) {
+            root = new Node(value);
+            return;
+        }
+        insert(sc, root, value);
+    }
+
+    return;
 }
 
-private void insert(Scanner sc,Node node){
-   if(node==null){
-     root=node;
-     return;
-   }
+private void insert(Scanner sc, Node node, int value) {
+    if (node == null) {
+        return;
+    }
 
-   System.out.println("do you want to insert on left of node"+ node.data);
-   boolean left=sc.nextBoolean();
+    System.out.println("do u want to insert on left of node " + node.data);
+    boolean left = sc.nextBoolean();
 
-   if(left && node.leftchild==null){
-      System.out.println("enter the value of left node"+node.data);
-      int val=sc.nextInt();
-      node.leftchild=new Node(val);
+    if(node.leftchild!=null){
+      System.out.println("oh sorry it is alredy full move to next node");
+      insert(sc, node.leftchild, value);
       return;
-     
-      
-   }
-   else if(left && node.leftchild!=null){
-     insert(sc,node.leftchild);
-   }
+    } 
 
-   System.out.println("Do you want to insert right node"+node.data);
-   boolean right=sc.nextBoolean();
+    if (left && node.leftchild == null) {
+        System.out.println("Inserting as left child of node " + node.data);
+        node.leftchild = new Node(value);
+        return;
+    } 
+        
+    
 
-  if(right && node.rightchild==null){
-      System.out.println("enter the value of right node"+node.data);
-      int val=sc.nextInt();
-      node.rightchild=new Node(val);
-      return;
-     
-      
-   }
-   else if(right && node.rightchild!=null){
-     insert(sc,node.rightchild);
-   }
+    System.out.println("do you want to insert right node " + node.data);
+    boolean right = sc.nextBoolean();
 
+    if(node.rightchild!=null){
+      System.out.println("oh sorry it is alredy full move to next node");
+    } 
 
+    if (right && node.rightchild == null) {
+        System.out.println("inserting as right child of node " + node.data);
+        node.rightchild = new Node(value);
+        return;
+    } else if (right && node.rightchild != null) {
+        insert(sc, node.rightchild, value);
+        return;
+    }
+
+    System.out.println("insertion cancelled"+ node.data);
 }
-
 
 
 
