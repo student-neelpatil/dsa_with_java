@@ -13,6 +13,7 @@ public class Main {
         bt.display();
         bt.insert(scanner);
         bt.display();
+        System.out.println(bt.bfs());
 
 
        

@@ -1,6 +1,9 @@
 package Trees.BinaryTrees;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinaryTree {
 
@@ -151,5 +154,49 @@ private void insert(Scanner sc, Node node, int value) {
     display(node.leftchild);
     display(node.rightchild);
   }
+
+
+ //---------------------------------------------------------------------------------------------------------------
+ 
+ //BFS-breadth first traversal
+
+ //return the list of all the nodes traverse using bfs
+
+ public ArrayList<Integer> bfs(){
+     return bfs(root);
+ }
+
+ public ArrayList<Integer>bfs(Node node){
+  ArrayList<Integer>arr=new ArrayList<>();
+  Queue<Node>queue=new LinkedList<>();
+
+  if(root==null){
+    return arr;
+  }
+
+
+  while(!queue.isEmpty()){
+   
+    queue.offer(node);
+    int currentlevel=queue.size();
+
+    for(int i=0;i<currentlevel;i++){
+       node=queue.poll();
+       arr.add(node.data);
+
+       if(node.leftchild!=null){
+          queue.offer(node.leftchild);
+       }
+       if(node.rightchild!=null){
+        queue.offer(node.rightchild);
+
+       }
+    }
+} 
+
+  return arr;
+
+
+ }
 
 }
