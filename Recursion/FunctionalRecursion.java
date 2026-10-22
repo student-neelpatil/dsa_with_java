@@ -19,11 +19,16 @@ public class FunctionalRecursion {
 
     public static int fun2(int n){
         int sum=0;
-        if(n<1){
+        if(n==0){
             return 0;
         }
 
        sum= n +fun2(n-1);
+       //1+0=1
+       //2+1=3
+       //3+3=6
+       //4+6=10
+       //5+10=15 here  it is our final answer
        return sum;
 
 

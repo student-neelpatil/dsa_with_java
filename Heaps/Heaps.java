@@ -10,11 +10,10 @@ public class Heaps{
         list=new ArrayList<>();
     }
 
-    
+
 
 
     //Integer.compareTo(obj1,obj2);
-
     
 }
 
